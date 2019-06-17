@@ -53,7 +53,7 @@ router.post('/login', (req, res, next) => {
       req.session.first_name = response.first_name;
       req.session.last_name = response.last_name;
       req.session.user_id = response.user_id;
-      res.redirect('/');
+      res.redirect('/survey');
     } else {
       res.sendStatus(401);
     }

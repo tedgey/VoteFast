@@ -30,7 +30,8 @@ class Surveys {
                     ($1, $2, $3, $4, $5)
                 returning id
                 `, [this.question, this.first_answer, this.second_answer, this.third_answer, this.fourth_answer]);
-            console.log("survey was created with id:", response.id);
+
+            console.log("survey was created with id:", response.question);
             return response;
         } catch(err) {
             return err.message;
