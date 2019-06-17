@@ -3,20 +3,6 @@ const express = require('express'),
     Surveys = require('../models/survey_model');
 
 
-router.post('/', (req, res, next) => {
-    console.log("posting the survey");
-    const { question, first_answer, second_answer, third_answer, fourth_answer } = req.body;
-    console.log(req.body);
-
-    const userSurvey = new Surveys(null, question, first_answer, second_answer, third_answer, fourth_answer);
-    console.log('instance', userSurvey);
-    userSurvey.saveSurvey().then(response => {
-    console.log("post survey-route response is", response);
-    res.sendStatus(200);
-    res.redirect('/survey-vote');
-    }).catch(err => console.log(err))
-})
-
 // create a survey after login
 router.get('/', async (req, res, next) => {
     res.render('template', { 
@@ -32,7 +18,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // GET recorded survey.
-router.get('/:id', async (req, res, next) => {
+router.get('/vote/:id', async (req, res, next) => {
     const surveyid = req.params.id;
     const sessionSurvey = await Surveys.getOne(surveyid);
     res.render('template', { 
@@ -43,12 +29,24 @@ router.get('/:id', async (req, res, next) => {
             surveyDetails: sessionSurvey
         },
         partials: {
-            partial: 'partial-survey-vote',
+            partial: 'partial-vote',
         }
     });
 });
 
+router.post('/', (req, res, next) => {
+    console.log("posting the survey");
+    const { question, first_answer, second_answer, third_answer, fourth_answer } = req.body;
+    console.log(req.body);
+    const userSurvey = new Surveys(null, question, first_answer, second_answer, third_answer, fourth_answer);
+    console.log('instance', userSurvey);
 
+    userSurvey.saveSurvey().then(response => {
+    console.log("post survey-route response is", response);
+    // res.sendStatus(200);
+    res.redirect('/vote'); 
+    }).catch(err => console.log(err))
+})
 
 
 

@@ -10,7 +10,6 @@ const indexRouter = require('./routes/index-route'),
     usersRouter = require('./routes/users-route'),
     surveyRouter = require('./routes/survey-route');
 
-
 const app = express();
 
 app.set('views', './views');
@@ -33,5 +32,6 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey', surveyRouter);
+
 
 module.exports = app;

@@ -12,8 +12,10 @@ class Surveys {
 
     static async getOne(id) {
         try {
-            const response = await db.any(`select * from surveys where id=${id};`);
-            console.log(response);
+            const response = await db.any(`select * from surveys where id= (
+                select max(id) from surveys)
+            ;`);
+            console.log("double check", response);
             return response;
         } 
         catch(err) {

@@ -1,0 +1,23 @@
+<h2>survey made by ${userName}</h2>
+
+<table class="table-fill">
+${surveyDetails.map(survey => 
+    `<tr>
+        <td>${survey.question}</td>
+        <td><button>${survey.first_answer}</button></td>
+        <td><button>${survey.second_answer}</button></td>
+        <td><button>${survey.third_answer}</button></td>
+        <td><button>${survey.fourth_answer}</button></td>
+    </tr>`
+    ).join('')}
+</table>
+
+
+
+
+
+
+
+
+
+
