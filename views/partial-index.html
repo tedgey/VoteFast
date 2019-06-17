@@ -1,0 +1,33 @@
+
+${!!is_logged_in ? `
+    <h1>Hello ${userName}</h1>
+    <p>Type your survey question and answers here</p>
+    <form action="/survey" method="POST">
+        <label>
+            Question:
+            <input type="text" name="qustion" placeholder="How much wood could a woodchuck chuck?"/>
+        </label>
+        <label>
+            Answer 1
+            <input type="text" name="answer1" placeholder="1 pound"/>
+        </label>
+        <label>
+            Answer 2
+            <input type="text" name="answer2" placeholder="5 pounds" />
+        </label>
+        <label>
+            Answer 3
+            <input type="text" name="answer3" placeholder="Lots!"/>
+        </label>
+        <label>
+            Answer 4
+            <input type="text" name="answer4" placeholder="Lots! +1"/>
+        </label>
+        <a href="/survey:id"><button type="submit" class="create-survey-button">Create Survey!</button></a>
+    </form>
+
+
+`:`
+    <p>sign in to create a survey</p>
+`}
+
