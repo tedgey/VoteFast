@@ -2,28 +2,28 @@
 ${!!is_logged_in ? `
     <h1>Hello ${userName}</h1>
     <p>Type your survey question and answers here</p>
-    <form action="/" method="POST">
+    <form action="/survey" method="POST">
         <label>
             Question:
-            <input type="text" name="qustion" placeholder="How much wood could a woodchuck chuck?"/>
+            <input type="text" name="question" placeholder="How much wood could a woodchuck chuck?"/>
         </label>
         <label>
             Answer 1
-            <input type="text" name="answer1" placeholder="1 pound"/>
+            <input type="text" name="first_answer" placeholder="1 pound"/>
         </label>
         <label>
             Answer 2
-            <input type="text" name="answer2" placeholder="5 pounds" />
+            <input type="text" name="second_answer" placeholder="5 pounds" />
         </label>
         <label>
             Answer 3
-            <input type="text" name="answer3" placeholder="Lots!"/>
+            <input type="text" name="third_answer" placeholder="Lots!"/>
         </label>
         <label>
             Answer 4
-            <input type="text" name="answer4" placeholder="Lots! +1"/>
+            <input type="text" name="fourth_answer" placeholder="Lots! +1"/>
         </label>
-        <a href="/survey:id"><button type="submit" class="create-survey-button">Create Survey!</button></a>
+        <button type="submit" class="create-survey-button">Create Survey!</button>
     </form>
 
 `:`
