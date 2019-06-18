@@ -10,10 +10,12 @@ class User {
         this.password = password;
     }
 
+    //hashing passwords
     async checkPassword(hashedPassword) {
         return bcrypt.compareSync(this.password, hashedPassword);
     }
 
+    //saving user info into postgresql
     async save() {
         try {
             const response = await db.one(`
@@ -29,13 +31,15 @@ class User {
             return err.message;
         }
     }
+
+    //checking login info to allow access
     async login() {
         try {
             const response = await db.one(`
                 select id, first_name, last_name, email, password
                     from users
                 where email = $1`, [this.email]);
-            console.log("line 38 user_model", response);
+            console.log("line 42 user_model", response);
             const isValid = await this.checkPassword(response.password);
             if (!!isValid) {
                 const { first_name, last_name, id } = response;

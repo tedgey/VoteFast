@@ -2,7 +2,7 @@ const express = require('express'),
   router = express.Router();
   Surveys = require('../models/survey_model');
 
-/* GET home page. */
+// get home page
 router.get('/', async function(req, res, next) {
   res.render('template', {
     locals: { 

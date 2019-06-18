@@ -10,6 +10,7 @@ class Surveys {
         this.fourth_answer = fourth_answer;
     }
 
+    // this will call the most recently added survey submission
     static async getOne(id) {
         try {
             const response = await db.any(`select * from surveys where id= (
@@ -23,6 +24,7 @@ class Surveys {
         }
     }
 
+    // records the survey into postgresql
     async saveSurvey() {
         try {
             const response = await db.one(`
