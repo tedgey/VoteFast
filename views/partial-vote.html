@@ -4,13 +4,13 @@
 
 <html>
 <body>
-    <p>You have 10 seconds to vote as many times as you can!</p>
-    <script>
-        var timer = setTimeout(function() {
-            window.location='http://example.com'
-        }, 1000000);
-    </script>
+    <div>You have <span id="time">00:10</span> seconds to vote as many times as you can!</div>
 </body>
+<script>
+    setTimeout(function() {
+        location.href='/result'
+    }, 10000);
+</script>
 <table class="table-fill">
 ${surveyDetails.map(survey => 
     `<tr>
@@ -34,33 +34,29 @@ ${surveyDetails.map(survey =>
     </tr>`
     ).join('')}
 </table>
-
 <script>
-var i = 0;
-var h = 0;
-var j = 0;
-var k = 0;
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-function firstVote() {
-    i++;
-    document.getElementById('first_button').value = i;
-}
-function secondVote() {
-    h++;
-    document.getElementById('second_button').value = h;
-}
-function thirdVote() {
-    j++;
-    document.getElementById('third_button').value = j;
-}
-function fourthVote() {
-    k++;
-    document.getElementById('fourth_button').value = k;
-}
-</script>
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-</html>
+        display.textContent = minutes + ":" + seconds;
 
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 2 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};</script>
 
 
 
