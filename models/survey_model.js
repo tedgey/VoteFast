@@ -13,7 +13,7 @@ class Surveys {
     // this will call the most recently added survey submission
     static async getOne(id) {
         try {
-            const response = await db.any(`select * from surveys where id= (
+            const response = await db.one(`select * from surveys where id= (
                 select max(id) from surveys)
             ;`);
             console.log("double check", response);

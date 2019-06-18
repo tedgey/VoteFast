@@ -7,7 +7,7 @@ const express = require('express'),
 router.get('/', async (req, res, next) => {
     res.render('template', { 
         locals: {
-            title: "Your Custom survey",
+            title: "Get Ready to VoteFast!",
             is_logged_in: req.session.is_logged_in,
             userName: req.session.first_name
         },

@@ -70,7 +70,7 @@ router.post('/signup', (req, res, next) => {
   console.log('instance', userInstance);
   userInstance.save().then(response => {
     console.log("response is", response);
-    res.sendStatus(200);
+    res.redirect('/');
   }).catch(err => console.log(err))
 })
 
