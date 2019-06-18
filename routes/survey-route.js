@@ -26,7 +26,6 @@ router.post('/', (req, res, next) => {
 
     userSurvey.saveSurvey().then(response => {
     console.log("post survey-route response is", response);
-    // res.sendStatus(200);
     res.redirect('/vote'); 
     }).catch(err => console.log(err))
 })

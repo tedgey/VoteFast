@@ -48,7 +48,6 @@ router.post('/login', (req, res, next) => {
   console.log(userInstance);
   userInstance.login().then(response => {
     req.session.is_logged_in = response.isValid;
-
     if (!!response.isValid) {
       req.session.first_name = response.first_name;
       req.session.last_name = response.last_name;
@@ -61,13 +60,13 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
-  console.log("this is a post");
+  console.log("signup post");
   const { first_name, last_name, email, password } = req.body;
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(password, salt);
 
   const userInstance = new User(null, first_name, last_name, email, hash);
-  console.log('instance', userInstance);
+  console.log('UserInstance', userInstance);
   userInstance.save().then(response => {
     console.log("response is", response);
     res.redirect('/');
