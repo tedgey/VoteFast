@@ -21,27 +21,25 @@
     }, 10000);
 </script>
 <table class="table-fill">
-${surveyDetails.map(survey => 
-    `<tr>
-        <td>${survey.question}</td>
+    <tr>
+        <td>${surveyDetails.question}</td>
         <td>
-            <button onclick="firstVote()">${survey.first_answer}</button>
+            <button onclick="firstVote()">${surveyDetails.first_answer}</button>
             <input type="text" id="first_button" value="0"></input>
         </td>
         <td>
-            <button onclick="secondVote()">${survey.second_answer}</button>
+            <button onclick="secondVote()">${surveyDetails.second_answer}</button>
             <input type="text" id="second_button" value="0"></input>
         </td>
         <td>
-            <button onclick="thirdVote()">${survey.third_answer}</button>
+            <button onclick="thirdVote()">${surveyDetails.third_answer}</button>
             <input type="text" id="third_button" value="0"></input>
         </td>
         <td>
-            <button onclick="fourthVote()">${survey.fourth_answer}</button>
+            <button onclick="fourthVote()">${surveyDetails.fourth_answer}</button>
             <input type="text" id="fourth_button" value="0"></input>
         </td>
-    </tr>`
-    ).join('')}
+    </tr>
 </table>
 <script>
 function startTimer(duration, display) {

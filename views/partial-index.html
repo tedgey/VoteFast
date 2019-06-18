@@ -3,14 +3,18 @@
     <title>VoteFast | ${title}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <!-- Place favicon.ico in the root directory -->
 </head>
-    
-${!!is_logged_in ? `
-    <h1>Hello ${userName}</h1>
+<section class="hero">
+    <div class="hero-body"> 
+        <div class="container">   
+        ${!!is_logged_in ? `
+            <h1 class="title">Hello ${userName}</h1>
 
-`:`
-    <p class="partial-index">sign in to create a survey</p>
-`}
-
+        `:`
+            <p>sign in to create a survey</p>
+        `}
+        </div>
+    </div>
+</section>

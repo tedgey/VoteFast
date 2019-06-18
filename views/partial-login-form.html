@@ -1,4 +1,4 @@
-\<head>
+<head>
     <meta charset="utf-8">
     <title>VoteFast | ${title}</title>
     <meta name="description" content="">
@@ -7,14 +7,18 @@
     <!-- Place favicon.ico in the root directory -->
 </head>    
 
-<form action="/users/login" method="POST">
-    <label>
-        Email Address
-        <input type="text" name="email" placeholder="you@email.com" />
-    </label>
-    <label>
+<form action="/users/login" method="POST" class="form">
+    <div class="field">
+        <label class="label">
+            Email Address
+            <input type="text" name="email" placeholder="you@email.com" />
+        </label>
+    </div>
+    <div class="field">
+    <label class="label">
         Password
         <input type="password" name="password" placeholder="Your Password"/>
     </label>
+    </div>
     <button type="submit" class="button is-primary">LOGIN</button>
 </form>
